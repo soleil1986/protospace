@@ -9,7 +9,14 @@ class UsersController < ApplicationController
 
   def update
     @user.update(update_params)
-    redirect_to root_path
+
+    respond_to do |format|
+      if @user.update(update_params)
+        format.html { redirect_to root_path(current_user), notice: 'Picture was successfully updated.' }
+      else
+        format.html { redirect_to edit_user_path(current_user.id), alert: 'one more chance!!!!!!!!!!!!!!'}
+      end
+    end
   end
 
 
@@ -22,3 +29,5 @@ class UsersController < ApplicationController
       params.require(:user).permit(:username, :image, :password, :member, :profile, :works, :email)
     end
 end
+
+
