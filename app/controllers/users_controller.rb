@@ -9,7 +9,13 @@ class UsersController < ApplicationController
 
   def update
     @user.update(update_params)
-    redirect_to root_path
+
+    if @user.update(update_params)
+      redirect_to root_path(current_user), success: "Successfully created your prototype."
+    else
+      flash[:warning] = "one more chance!!!!!!!!!!!"
+      render :edit
+    end
   end
 
 
@@ -22,3 +28,5 @@ class UsersController < ApplicationController
       params.require(:user).permit(:username, :image, :password, :member, :profile, :works, :email)
     end
 end
+
+

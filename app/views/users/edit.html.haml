@@ -1,4 +1,11 @@
 = form_for @user do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2 #{@user.errors.count} 件のエラーが出ています
+      %ul
+        - @user.errors.full_messages.each do |message|
+          %li
+            = message
   .container.user-new{action: ""}
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
