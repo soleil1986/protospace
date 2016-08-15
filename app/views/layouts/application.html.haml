@@ -7,12 +7,10 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    - if notice
-      %p.alert.alert-notice
-        = notice
-    - if alert
-      %p.alert.alert-error
-        = alert
     = render "layouts/header"
+    - flash.each do |key, value|
+      - key = "info" if key == "notice"
+      - key = "danger"  if key == "alert"
+      = content_tag :div, value, class: "alert alert-#{key}"
     = yield
     = render "layouts/footer"

@@ -10,12 +10,11 @@ class UsersController < ApplicationController
   def update
     @user.update(update_params)
 
-    respond_to do |format|
-      if @user.update(update_params)
-        format.html { redirect_to root_path(current_user), notice: 'Picture was successfully updated.' }
-      else
-        format.html { redirect_to edit_user_path(current_user.id), alert: 'one more chance!!!!!!!!!!!!!!'}
-      end
+    if @user.update(update_params)
+      redirect_to root_path(current_user), success: "Successfully created your prototype."
+    else
+      flash[:warning] = "one more chance!!!!!!!!!!!"
+      render :edit
     end
   end
 
