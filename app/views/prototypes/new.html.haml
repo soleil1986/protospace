@@ -1,4 +1,4 @@
-= form_for @prototype do |f|
+= form_for @prototype do |prototype_form|
   - if @prototype.errors.any?
     #error_explanation
       %h2 #{@prototype.errors.count} 件のエラーが出ています
@@ -10,27 +10,35 @@
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
         .col-md-12
-          = f.text_field :title, placeholder: "Title", autofocus: true
+          = prototype_form.text_field :title, placeholder: "Title", autofocus: true
       .row
-        .col-md-12
-          .cover-image-upload
-            %input{type: "file"}/
+        = prototype_form.fields_for :images do |image_form|
+          .col-md-12
+            .cover-image-upload
+              = image_form.file_field :image
+              = image_form.hidden_field :roll, value:"main"
         .col-md-12
           %ul.proto-sub-list.list-group
-            %li.list-group-item.col-md-4
-              .image-upload
-                %input{type: "file"}/
-            %li.list-group-item.col-md-4
-              .image-upload
-                %input{type: "file"}/
-            %li.list-group-item.col-md-4
-              .image-upload-plus
-                %span +
-      .row.proto-description
+            = prototype_form.fields_for :images do |image_form|
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = image_form.file_field :image
+                  = image_form.hidden_field :roll, value:"sub"
+            = prototype_form.fields_for :images do |image_form|
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = image_form.file_field :image
+                  = image_form.hidden_field :roll, value:"sub"
+            = prototype_form.fields_for :images do |image_form|
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = image_form.file_field :image
+                  = image_form.hidden_field :roll, value:"sub"
+      .row.proto-descri150n
         .col-md-12
-          %input{type: "text", placeholder: "Catch Copy"}/
+          = prototype_form.text_field :catchcopy, placeholder: "Catch Copy", autofocus: true
         .col-md-12
-          %textarea{name: "", cols: "30", rows: "4", placeholder: "Concept"}
+          = prototype_form.text_area :concept, size: "4x4", placeholder: "Concept", autofocus: true
         .col-md-12
           %h4 Tag List
           .row

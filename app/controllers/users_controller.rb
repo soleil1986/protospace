@@ -9,7 +9,6 @@ class UsersController < ApplicationController
 
   def update
     @user.update(update_params)
-
     if @user.update(update_params)
       redirect_to root_path(current_user), success: "Successfully created your prototype."
     else
