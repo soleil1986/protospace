@@ -12,7 +12,6 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to root_path(current_user), notice: 'User was successfully created.'
     else
-      @prototype = Prototype.new(prototype_params)
       render :new
     end
   end
