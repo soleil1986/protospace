@@ -1,9 +1,10 @@
 class PrototypesController < ApplicationController
   def index
+    @prototypes = Prototype.all
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
     @prototype = Prototype.find(params[:id])
   end
 

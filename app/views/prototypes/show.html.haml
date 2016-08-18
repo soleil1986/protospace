@@ -10,8 +10,9 @@
         .row
           .col-md-6
             %p
-              = link_to "by", user_path(@user)
-              = @user.username
+              = link_to user_path(@user) do
+                by
+                = @user.username
     .col-md-6.text-right
       %button.btn.btn-default
         = image_tag("icon_heart.svg")
