@@ -9,7 +9,6 @@ class UsersController < ApplicationController
 
   def update
     @user.update(update_params)
-
     if @user.update(update_params)
       redirect_to root_path(current_user), success: "Successfully created your prototype."
     else
@@ -25,7 +24,7 @@ class UsersController < ApplicationController
     end
 
     def update_params
-      params.require(:user).permit(:username, :image, :password, :member, :profile, :works, :email)
+      params.require(:user).permit(:username, :avatar, :password, :member, :profile, :works, :email)
     end
 end
 

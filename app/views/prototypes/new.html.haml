@@ -1,36 +1,52 @@
-%form.container.proto-new{action: ""}
-  .col-md-8.col-md-offset-2
-    %header.row.user-nav.row
-      .col-md-12
-        %input.proto-new-title{type: "text", placeholder: "Title"}/
-    .row
-      .col-md-12
-        .cover-image-upload
-          %input{type: "file"}/
-      .col-md-12
-        %ul.proto-sub-list.list-group
-          %li.list-group-item.col-md-4
-            .image-upload
-              %input{type: "file"}/
-          %li.list-group-item.col-md-4
-            .image-upload
-              %input{type: "file"}/
-          %li.list-group-item.col-md-4
-            .image-upload-plus
-              %span +
-    .row.proto-description
-      .col-md-12
-        %input{type: "text", placeholder: "Catch Copy"}/
-      .col-md-12
-        %textarea{name: "", cols: "30", rows: "4", placeholder: "Concept"}
-      .col-md-12
-        %h4 Tag List
-        .row
-          .col-md-3
-            %input{type: "text", placeholder: "Web Design"}/
-          .col-md-3
-            %input{type: "text", placeholder: "UI"}/
-          .col-md-3
-            %input{type: "text", placeholder: "Application"}/
-    .row.text-center.proto-btn
-      %button.btn.btn-lg.btn-primary.btn-block{type: "submit"} Publish
+= form_for @prototype do |prototype_form|
+  - if @prototype.errors.any?
+    #error_explanation
+      %h2 #{@prototype.errors.count} 件のエラーが出ています
+      %ul
+        - @prototype.errors.full_messages.each do |message|
+          %li
+            = message
+  .container.proto-new{action: ""}
+    .col-md-8.col-md-offset-2
+      %header.row.user-nav.row
+        .col-md-12
+          = prototype_form.text_field :title, placeholder: "Title", autofocus: true
+      .row
+        .col-md-12
+          .cover-image-upload
+            = prototype_form.fields_for :images do |image_form|
+              = image_form.file_field :image
+              = image_form.hidden_field :roll, value:"main"
+        .col-md-12
+          %ul.proto-sub-list.list-group
+            %li.list-group-item.col-md-4
+              .image-upload
+                = prototype_form.fields_for :images do |image_form|
+                  = image_form.file_field :image
+                  = image_form.hidden_field :roll, value:"sub"
+            %li.list-group-item.col-md-4
+              .image-upload
+                = prototype_form.fields_for :images do |image_form|
+                  = image_form.file_field :image
+                  = image_form.hidden_field :roll, value:"sub"
+            %li.list-group-item.col-md-4
+              .image-upload
+                = prototype_form.fields_for :images do |image_form|
+                  = image_form.file_field :image
+                  = image_form.hidden_field :roll, value:"sub"
+      .row.proto-descri150n
+        .col-md-12
+          = prototype_form.text_field :catchcopy, placeholder: "Catch Copy", autofocus: true
+        .col-md-12
+          = prototype_form.text_area :concept, size: "4x4", placeholder: "Concept", autofocus: true
+        .col-md-12
+          %h4 Tag List
+          .row
+            .col-md-3
+              %input{type: "text", placeholder: "Web Design"}/
+            .col-md-3
+              %input{type: "text", placeholder: "UI"}/
+            .col-md-3
+              %input{type: "text", placeholder: "Application"}/
+      .row.text-center.proto-btn
+        %button.btn.btn-lg.btn-primary.btn-block{type: "submit"} Publish

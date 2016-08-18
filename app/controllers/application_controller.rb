@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up).push(:username, :member, :profile, :works, :image)
+    devise_parameter_sanitizer.for(:sign_up).push(:username, :member, :profile, :works, :avatar)
   end
 
 
