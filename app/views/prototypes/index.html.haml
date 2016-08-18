@@ -19,7 +19,7 @@
         .thumbnail
           = link_to prototype_path(prototype) do
             .btn.btn-default ACTION
-            = image_tag(prototype.images.main.first.image)
+            = image_tag(prototype.main)
           .caption
             %h3
               = prototype.title
@@ -30,7 +30,7 @@
                     by
                     = prototype.user.username
               .proto-posted
-                = prototype.updated_at.strftime("%b %d")
+                = prototype.created_at.strftime("%b %d")
             %ul.proto-tag-list.list-inline
               = link_to "#" do
                 %li

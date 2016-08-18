@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def show
-    @prototypes = @user.prototypes.includes(:user).order('created_at DESC')
+    @prototypes = @user.prototypes.order('created_at DESC')
   end
 
   def edit
@@ -20,13 +20,13 @@ class UsersController < ApplicationController
 
 
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    def update_params
-      params.require(:user).permit(:username, :avatar, :password, :member, :profile, :works, :email)
-    end
+  def update_params
+    params.require(:user).permit(:username, :avatar, :password, :member, :profile, :works, :email)
+  end
 end
 
 

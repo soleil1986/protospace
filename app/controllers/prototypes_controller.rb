@@ -1,10 +1,9 @@
 class PrototypesController < ApplicationController
   def index
-    @prototypes = Prototype.all
+    @prototypes = Prototype.includes(:user).all
   end
 
   def show
-    @user = User.find(params[:id])
     @prototype = Prototype.find(params[:id])
   end
 
@@ -23,7 +22,7 @@ class PrototypesController < ApplicationController
   end
 
   private
-    def prototype_params
-      params.require(:prototype).permit(:title, :catchcopy, :concept, images_attributes: [:image, :roll]).merge(user_id: current_user.id)
-    end
+  def prototype_params
+    params.require(:prototype).permit(:title, :catchcopy, :concept, images_attributes: [:image, :roll]).merge(user_id: current_user.id)
+  end
 end
