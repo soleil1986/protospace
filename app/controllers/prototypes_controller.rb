@@ -2,6 +2,11 @@ class PrototypesController < ApplicationController
   def index
   end
 
+  def show
+    @user = current_user
+    @prototype = Prototype.find(params[:id])
+  end
+
   def new
     @prototype = Prototype.new
     @prototype.images.build
