@@ -6,7 +6,11 @@ has_many :likes
 has_many :comments
 
 ##table
-- nickname :string
+- username :string
+- member :string
+- profile :string
+- works :string
+- avatar :text
 - email :string
 
 #Prototype
@@ -14,12 +18,14 @@ ___
 ##association
 has_many :likes
 has_many :comments
+has_many :images
 belongs_to :user
 
 ##table
 - user_id :integer
-- image :text
-- text :text
+- title :string
+- catchcopy :string
+- concept :text
 
 #Like
 ___
