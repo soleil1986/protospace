@@ -13,4 +13,5 @@
 /tmp
 
 #img
-/public/uploads/image/*
+/public/uploads
+
