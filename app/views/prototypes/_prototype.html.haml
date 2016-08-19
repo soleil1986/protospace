@@ -1,0 +1,17 @@
+.col-sm-4.col-md-3.proto-content
+  .thumbnail
+    = link_to prototype_path(prototype) do
+      .btn.btn-default ACTION
+      = image_tag(prototype.main)
+    .caption
+      %h3
+        = prototype.title
+      .proto-meta
+        .proto-date
+          Apr 26
+      %ul.proto-tag-list.list-inline
+        = link_to "#" do
+          %li
+            .btn.btn-default iPad
+          %li
+            .btn.btn-default wireframe

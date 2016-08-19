@@ -23,4 +23,6 @@
             %h4 Works
             %p
               = @user.works
-= render "user.proto"
+.container.proto-list
+  .row
+    = render partial: "prototypes/prototype", collection: @prototypes
