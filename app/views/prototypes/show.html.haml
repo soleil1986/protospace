@@ -1,9 +1,10 @@
 .container.user-page
   %header.user-nav
     .media
-      / .media-left
-      /   = link_to user_path(@user) do
-      /     %img.media-object{alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", style: "width: 64px; height: 64px;"}/
+      .media-left
+        = link_to user_path(@prototype.user) do
+          %img.media-object
+            = image_tag(@prototype.user.avatar, style: "width: 64px; height: 64px;", class: "media-object")
       .media-body
         %h4#top-aligned-media.media-heading
           = @prototype.title
@@ -22,13 +23,10 @@
     .col-md-9
       = image_tag(@prototype.main)
     .col-md-3
-      %ul.proto-sub-list.list-group
-        %li.list-group-item
-          = image_tag(@prototype.sub_first)
-        %li.list-group-item
-          = image_tag(@prototype.sub_second)
-        %li.list-group-item
-          = image_tag(@prototype.sub_third)
+      - @prototype.sub_images.each do |sub|
+        %ul.proto-sub-list.list-group
+          %li.list-group-item
+            = image_tag(sub.image)
   .row.proto-description
     .col-md-3
       %h4 Catch Copy

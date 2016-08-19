@@ -10,15 +10,7 @@ class Prototype < ActiveRecord::Base
     images.main.first.image
   end
 
-  def sub_first
-    images.sub.first.image
-  end
-
-  def sub_second
-    images.sub.second.image
-  end
-
-  def sub_third
-    images.sub.third.image
+  def sub_images
+    images.sub
   end
 end
