@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
+  mount_uploader :avatar, ImageUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:email]
+  has_many :prototypes
   validates :username, presence: true
   validates :avatar, presence: true
   validates :password, presence: true
