@@ -1,23 +1,52 @@
 .col-sm-4.col-md-3.proto-content
-  .thumbnail
-    = link_to prototype_path(prototype) do
-      .btn.btn-default ACTION
-      = image_tag(prototype.main)
-    .caption
-      %h3
-        = prototype.title
-      .proto-meta
-        .proto-user
-          %p
-            = link_to user_path(prototype.user) do
-              by
-              = prototype.user.username
-        .proto-date
-          .proto-posted
-            = prototype.created_at.strftime("%b %d")
-      %ul.proto-tag-list.list-inline
-        = link_to "#" do
-          %li
-            .btn.btn-default iPad
-          %li
-            .btn.btn-default wireframe
+  -if current_user.id == prototype.user.id
+    .dropdown.drop_menu_location
+      %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", id: "dropMenu", type: "button", "aria-expanded" => "false"} ACTION
+      %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+        %li
+          = link_to "Delete", prototype, :method => :delete
+        %li
+          = link_to "Edit", edit_prototype_path(prototype)
+    .thumbnail
+      = link_to prototype_path(prototype) do
+        = image_tag(prototype.main.image)
+      .caption
+        %h3
+          = prototype.title
+        .proto-meta
+          .proto-user
+            %p
+              = link_to user_path(prototype.user) do
+                by
+                = prototype.user.username
+          .proto-date
+            .proto-posted
+              = prototype.created_at.strftime("%b %d")
+        %ul.proto-tag-list.list-inline
+          = link_to "#" do
+            %li
+              .btn.btn-default iPad
+            %li
+              .btn.btn-default wireframe
+  - else
+    .thumbnail
+      = link_to prototype_path(prototype) do
+        = image_tag(prototype.main.image)
+      .caption
+        %h3
+          = prototype.title
+        .proto-meta
+          .proto-user
+            %p
+              = link_to user_path(prototype.user) do
+                by
+                = prototype.user.username
+          .proto-date
+            .proto-posted
+              = prototype.created_at.strftime("%b %d")
+        %ul.proto-tag-list.list-inline
+          = link_to "#" do
+            %li
+              .btn.btn-default iPad
+            %li
+              .btn.btn-default wireframe

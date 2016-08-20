@@ -1,5 +1,5 @@
 class Prototype < ActiveRecord::Base
-  has_many :images
+  has_many :images, :dependent => :destroy
   belongs_to :user
   accepts_nested_attributes_for :images
   validates :title, presence: true
@@ -7,10 +7,11 @@ class Prototype < ActiveRecord::Base
   validates :concept, presence: true
 
   def main
-    images.main.first.image
+    images.main.first
   end
 
-  def sub_images
+  def sub
     images.sub
   end
 end
+
