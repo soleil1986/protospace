@@ -24,7 +24,7 @@ class PrototypesController < ApplicationController
 
   def destroy
     @prototype.destroy
-    redirect_to user_path(@prototype.user)
+    redirect_to root_path(current_user), danger: "デストロイです"
   end
 
   def edit
@@ -32,7 +32,7 @@ class PrototypesController < ApplicationController
 
   def update
     if @prototype.update(update_prototype_params)
-      redirect_to root_path(current_user)
+      redirect_to root_path(current_user), info: "改めました"
     else
       render :edit
     end
