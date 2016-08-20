@@ -50,3 +50,4 @@ gem "erb2haml"
 gem 'bootstrap-sass'
 gem 'devise', '4.1.0'
 gem 'carrierwave'
+gem 'kaminari'
