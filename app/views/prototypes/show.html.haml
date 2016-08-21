@@ -15,13 +15,12 @@
                 by
                 = @prototype.user.username
     .col-md-6.text-right
-      %button.btn.btn-default
+      %button.btn.btn-default.decrement-button
         #like-link
           = render "likes/like_links", prototype: @prototype
         Like
-        #like-count
-          %span.num
-            = @prototype.likes.count
+        %span.num#like-count
+          = @prototype.likes.count
   .row
     .col-md-9
       = image_tag(@prototype.main.image)
