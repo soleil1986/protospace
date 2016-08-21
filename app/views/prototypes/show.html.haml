@@ -16,9 +16,12 @@
                 = @prototype.user.username
     .col-md-6.text-right
       %button.btn.btn-default
-        = image_tag("icon_heart.svg")
+        #like-link
+          = render "likes/like_links", prototype: @prototype
         Like
-        %span.num 20
+        #like-count
+          %span.num
+            = @prototype.likes.count
   .row
     .col-md-9
       = image_tag(@prototype.main.image)

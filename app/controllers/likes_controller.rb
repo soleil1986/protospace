@@ -6,7 +6,7 @@ class LikesController < ApplicationController
   end
 
   def unlike
-    @picture = Prototype.find(params[:prototype_id])
+    @prototype = Prototype.find(params[:prototype_id])
     like = current_user.likes.find_by(prototype_id: @prototype.id)
     like.destroy
   end
