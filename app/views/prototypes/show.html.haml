@@ -14,11 +14,10 @@
               = link_to user_path(@prototype.user) do
                 by
                 = @prototype.user.username
-    .col-md-6.text-right
-      %button.btn.btn-default
-        = image_tag("icon_heart.svg")
-        Like
-        %span.num 20
+    .col-md-6
+      .likes-box
+        #like-link
+          = render "likes/like_links", prototype: @prototype
   .row
     .col-md-9
       = image_tag(@prototype.main.image)

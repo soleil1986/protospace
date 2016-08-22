@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:email]
   has_many :prototypes
+  has_many :likes
   validates :username, presence: true
   validates :avatar, presence: true
   validates :password, presence: true

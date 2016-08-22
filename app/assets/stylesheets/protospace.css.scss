@@ -631,3 +631,20 @@ body {
   top: 10px;
   left: 20px;
 }
+
+.likes-box {
+  float: right;
+  width: 268px;
+  margin: 0 -1px 15px;
+  #like-link {
+    width: 110px;
+    height: 62px;
+    float: left;
+    margin-right:10px;
+    .btn-default {
+      width: 110px;
+      height: 62px;
+    }
+  }
+}
+
