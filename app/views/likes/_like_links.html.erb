@@ -1,5 +1,21 @@
 <% if current_user.likes.find_by(prototype_id: prototype.id) %>
-    <%= link_to image_tag("icon_heart.svg"), unlike_path(prototype.id), method: :delete, remote: true %>
+    <%= link_to unlike_path(prototype.id), method: :delete, remote: true do %>
+      <button class="btn btn-default">
+          <%= image_tag("icon_heart_red.svg") %>
+          Like
+          <span class="num" id="like-count">
+            <%= @prototype.likes.count %>
+          </span>
+      </button>
+    <% end %>
   <% else %>
-    <%= link_to image_tag("icon_heart_red.svg"), like_path(prototype.id), method: :post, remote: true %>
+    <%= link_to like_path(prototype.id), method: :post, remote: true do %>
+      <button class="btn btn-default">
+          <%= image_tag("icon_heart.svg")%>
+          Like
+          <span class="num" id="like-count">
+            <%= @prototype.likes.count %>
+          </span>
+      </button>
+    <% end %>
 <% end %>

@@ -14,13 +14,10 @@
               = link_to user_path(@prototype.user) do
                 by
                 = @prototype.user.username
-    .col-md-6.text-right
-      %button.btn.btn-default.decrement-button
+    .col-md-6.clearfix
+      .likes-box
         #like-link
           = render "likes/like_links", prototype: @prototype
-        Like
-        %span.num#like-count
-          = @prototype.likes.count
   .row
     .col-md-9
       = image_tag(@prototype.main.image)
