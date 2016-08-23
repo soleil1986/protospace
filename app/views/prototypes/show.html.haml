@@ -46,10 +46,12 @@
     %h4.col-md-12
       Comments
       %span.num (10)
-      %form.form-inline{role: "form"}
-        %h4 Write a comment
-        .row
-          .form-group.col-md-10
-            %textarea.form-control{placeholder: "Your comments", rows: "3"}
-          .form-group.col-md-2
-            %button.btn.btn-primary Comment
+    - if user_signed_in?
+      = form_for @comment do |comment|
+        %form.form-inline{role: "form"}
+          %h4 Write a comment
+          .row
+            .form-group.col-md-10
+              = comment.text_area :comment, placeholder: "Your comments", rows: "3", class: "form-control"
+            .form-group.col-md-2
+              %button.btn.btn-primary Comment
