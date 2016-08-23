@@ -4,5 +4,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:email]
   has_many :prototypes
   has_many :likes
+  has_many :comments
   validates_presence_of :username, :avatar, :password, :member, :profile, :works
 end
