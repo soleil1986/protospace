@@ -1,5 +1,5 @@
 .col-sm-4.col-md-3.proto-content
-  - if current_user.id == prototype.user.id
+  - if user_signed_in? && current_user.id == prototype.user.id
     .dropdown.drop_menu_location
       %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", id: "dropMenu", type: "button", "aria-expanded" => "false"} ACTION
       %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
