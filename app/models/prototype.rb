@@ -3,9 +3,7 @@ class Prototype < ActiveRecord::Base
   belongs_to :user
   has_many :likes, dependent: :destroy
   accepts_nested_attributes_for :images
-  validates :title, presence: true
-  validates :catchcopy, presence: true
-  validates :concept, presence: true
+  validates_presence_of :title, :catchcopy, :concept
 
   def main
     images.main.first
