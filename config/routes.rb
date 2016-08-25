@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   end
   post '/like/:prototype_id' => 'likes#like', as: 'like'
   delete '/unlike/:prototype_id' => 'likes#unlike', as: 'unlike'
+  get '/newest' => 'newests#index'
   root 'prototypes#index'
 end
