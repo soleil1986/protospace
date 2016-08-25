@@ -3,8 +3,6 @@ class Prototype < ActiveRecord::Base
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :newests, dependent: :destroy
-  has_many :populars, dependent: :destroy
   accepts_nested_attributes_for :images
   validates_presence_of :title, :catchcopy, :concept
 
