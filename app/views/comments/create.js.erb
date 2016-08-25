@@ -1,2 +1,2 @@
-$("#memo_text").val(""); // 入力フォームを空欄にする処理
-$("ul").html("<%= j(render @memos) %>");
+$("#comment_field").val("");
+$("#comment_list").html('<%= j(render partial: "prototypes/comment", locals: { prototype: @prototype}) %>');

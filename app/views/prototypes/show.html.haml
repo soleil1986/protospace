@@ -49,23 +49,13 @@
         (#{@prototype.comments.count})
     .col-md-8#comment_area
       #comment_list
-      - @prototype.comments.each do |prototype|
-        .media
-          .media-left
-            = link_to user_path(prototype.user) do
-              = image_tag(prototype.user.avatar, style: "width: 64px; height: 64px;", class: "media-object")
-          .media-body
-            %h4.media-heading#top-aligned-media
-              = prototype.user.username
-              %a.anchorjs-link
-              %p
-                = prototype.comment
+        = render "prototypes/comment", prototype: @prototype
   - if user_signed_in?
     = form_for [@prototype, @comment], remote: true do |comment|
       %form.form-inline{role: "form"}
         %h4 Write a comment
         .row
           .form-group.col-md-10
-            = comment.text_area :comment, placeholder: "Your comments", rows: "3", class: "textform-control"
+            = comment.text_area :comment, placeholder: "Your comments", rows: "3", class: "textform-control", id: "comment_field"
           .form-group.col-md-2
             %button.btn.btn-primary Comment
