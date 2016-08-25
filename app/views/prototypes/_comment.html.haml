@@ -1,0 +1,11 @@
+- prototype.comments.each do |comment|
+  .media
+    .media-left
+      = link_to user_path(comment.user) do
+        = image_tag(comment.user.avatar, style: "width: 64px; height: 64px;", class: "media-object")
+    .media-body
+      %h4.media-heading#top-aligned-media
+        = comment.user.username
+        %a.anchorjs-link
+      %p
+        = comment.comment

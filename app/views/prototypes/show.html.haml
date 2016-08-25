@@ -45,11 +45,17 @@
   .row.proto-comments
     %h4.col-md-12
       Comments
-      %span.num (10)
+      %span.num
+        (#{@prototype.comments_count})
+    .col-md-8#comment_area
+      #comment_list
+        = render "prototypes/comment", prototype: @prototype
+  - if user_signed_in?
+    = form_for [@prototype, @comment], remote: true do |comment|
       %form.form-inline{role: "form"}
         %h4 Write a comment
         .row
           .form-group.col-md-10
-            %textarea.form-control{placeholder: "Your comments", rows: "3"}
+            = comment.text_area :comment, placeholder: "Your comments", rows: "3", class: "textform-control", id: "comment_field"
           .form-group.col-md-2
             %button.btn.btn-primary Comment
