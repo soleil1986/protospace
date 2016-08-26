@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   delete '/unlike/:prototype_id' => 'likes#unlike', as: 'unlike'
   get '/newest' => 'newests#index'
   get '/popular' => 'populars#index'
+  get '/tag' => 'tags#index'
   root 'prototypes#index'
 end
