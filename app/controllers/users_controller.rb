@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def show
-    @prototypes = @user.prototypes.order('created_at DESC')
+    @prototypes = @user.prototypes.includes(:tags).order('created_at DESC')
   end
 
   def edit
