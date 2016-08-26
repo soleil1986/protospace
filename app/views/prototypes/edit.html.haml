@@ -32,12 +32,9 @@
           = prototype_form.text_area :concept, size: "4x4", placeholder: "Concept", autofocus: true
         .col-md-12
           %h4 Tag List
-          .row
-            .col-md-3
-              %input{type: "text", placeholder: "Web Design"}/
-            .col-md-3
-              %input{type: "text", placeholder: "UI"}/
-            .col-md-3
-              %input{type: "text", placeholder: "Application"}/
+          - @prototype.tags.each do |tag|
+            .row#prototype-tags
+              .col-md-3
+                = text_field_tag "prototype[tag][]", "", placeholder: "Web Design", value: tag
       .row.text-center.proto-btn
         %button.btn.btn-lg.btn-primary.btn-block{type: "submit"} Publish

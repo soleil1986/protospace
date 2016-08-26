@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :prototypes do
     resources :comments, only: [:create]
   end
+  resources :tags, only: [:index, :show]
   post '/like/:prototype_id' => 'likes#like', as: 'like'
   delete '/unlike/:prototype_id' => 'likes#unlike', as: 'unlike'
   get '/newest' => 'newests#index'

@@ -44,6 +44,7 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'bullet'
 end
 gem "haml-rails"
 gem "erb2haml"
@@ -51,3 +52,5 @@ gem 'bootstrap-sass'
 gem 'devise', '4.1.0'
 gem 'carrierwave'
 gem 'kaminari'
+gem 'acts-as-taggable-on', '~> 3.4'
+

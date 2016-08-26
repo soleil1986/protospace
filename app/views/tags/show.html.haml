@@ -2,8 +2,3 @@
 .container.proto-list
   .row
     = render partial: "prototypes/prototype", collection: @prototypes
-.text-center
-  %ul.pagination
-    %nav.pagination
-      %li.active
-        = paginate(@prototypes)
