@@ -1,6 +1,5 @@
 class PrototypesController < ApplicationController
   before_action :set_prototype, only: [:show, :destroy, :edit, :update]
-  before_action :set_prototype_tags_to_gon, only: [:edit]
 
   def index
     @prototypes = Prototype.includes(:user).page(params[:page]).per(8)
@@ -44,10 +43,6 @@ class PrototypesController < ApplicationController
 
   def set_prototype
     @prototype = Prototype.find(params[:id])
-  end
-
-  def set_prototype_tags_to_gon
-    gon.prototype_tags = @prototype.tag_list
   end
 
   def prototype_params
