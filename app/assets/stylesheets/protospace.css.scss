@@ -515,7 +515,12 @@ body {
     position: relative;
     background-color: #fff;
     background-size: cover;
-
+    .preview {
+      border-radius: 50%;
+      width: 64px;
+      height: 64px;
+      display: block;
+    }
     button {
       font-size: 9px;
       position: absolute;
@@ -660,3 +665,4 @@ body {
     }
   }
 }
+
