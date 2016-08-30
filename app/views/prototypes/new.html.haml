@@ -15,15 +15,15 @@
         .col-md-12
           .cover-image-upload.preview
             = prototype_form.fields_for :images do |image_form|
-              = image_form.file_field :image, id: "file"
+              = image_form.file_field :image, class: 'image'
               = image_form.hidden_field :roll, value:"main"
         .col-md-12
           %ul.proto-sub-list.list-group
             - 3.times do
               %li.list-group-item.col-md-4
-                .image-upload
+                .image-upload.preview
                   = prototype_form.fields_for :images do |image_form|
-                    = image_form.file_field :image
+                    = image_form.file_field :image, class: 'image'
                     = image_form.hidden_field :roll, value:"sub"
       .row.proto-descri150n
         .col-md-12
