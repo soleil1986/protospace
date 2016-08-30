@@ -53,4 +53,5 @@ gem 'devise', '4.1.0'
 gem 'carrierwave'
 gem 'kaminari'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'jquery-turbolinks'
 
