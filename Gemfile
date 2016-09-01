@@ -36,6 +36,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -46,6 +49,13 @@ group :development do
   gem 'spring'
   gem 'bullet'
 end
+group :test do
+  gem "capybara"
+  gem "database_cleaner"
+  gem "launchy"
+  gem "poltergeist"
+end
+
 gem "haml-rails"
 gem "erb2haml"
 gem 'bootstrap-sass'
