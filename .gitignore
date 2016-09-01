@@ -15,3 +15,5 @@
 #img
 /public/uploads
 
+#.env
+/.env
