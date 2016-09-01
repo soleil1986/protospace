@@ -11,7 +11,7 @@ $(document).on("ready page:load", function(){
             var fr = new FileReader();
             fr.readAsDataURL(file);
             fr.onload = function(){
-                preview.css({'background-image':'url(' + fr.result + ')', 'background-size':'100% 100%'});
+                preview.css({'background-image':'url(' + fr.result + ')', 'background-size':'contain'});
             }
             }
         );
