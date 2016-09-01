@@ -54,4 +54,5 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'jquery-turbolinks'
+gem 'fog'
 
