@@ -12,8 +12,11 @@
 !/log/.keep
 /tmp
 
-#img
+# img
 /public/uploads
 
 #.env
 /.env
+
+# spec
+/spec/files

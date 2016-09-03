@@ -8,11 +8,14 @@ CarrierWave.configure do |config|
   }
 
     case Rails.env
-    when 'development'
-        config.fog_directory  = 'protospacebucket'
-        config.asset_host = 'https://s3.amazonaws.com/protospacebucket'
-    when 'production'
-        config.fog_directory  = 'protospacebucket'
-        config.asset_host = 'https://s3.amazonaws.com/protospacebucket'
+        when 'development'
+            config.fog_directory  = 'protospacebucket'
+            config.asset_host = 'https://s3.amazonaws.com/protospacebucket'
+        when 'production'
+            config.fog_directory  = 'protospacebucket'
+            config.asset_host = 'https://s3.amazonaws.com/protospacebucket'
+        when 'test'
+            config.fog_directory  = 'protospacebucket'
+            config.asset_host = 'https://s3.amazonaws.com/protospacebucket'
     end
 end
