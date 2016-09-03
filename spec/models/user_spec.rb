@@ -28,6 +28,30 @@ describe User do
         expect(user.errors[:password]).to include("can't be blank")
       end
 
+      it "is invalid without a avatar" do
+        user = build(:user, avatar: nil)
+        user.valid?
+        expect(user.errors[:avatar]).to include("can't be blank")
+      end
+
+      it "is invalid without a member" do
+        user = build(:user, member: nil)
+        user.valid?
+        expect(user.errors[:member]).to include("can't be blank")
+      end
+
+      it "is invalid without a profile" do
+        user = build(:user, profile: nil)
+        user.valid?
+        expect(user.errors[:profile]).to include("can't be blank")
+      end
+
+      it "is invalid without a works" do
+        user = build(:user, works: nil)
+        user.valid?
+        expect(user.errors[:works]).to include("can't be blank")
+      end
+
       it "is invalid with a duplicate email address" do
         user = create(:user)
         another_user = build(:user, email: user.email)
