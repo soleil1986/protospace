@@ -7,6 +7,7 @@ FactoryGirl.define do
     works {Faker::Name.title}
     email {Faker::Internet.email}
     password              "password"
+    avatar { Rack::Test::UploadedFile.new("spec/files/MtFuji.jpg", "image/jpg") }
   end
 
 end
