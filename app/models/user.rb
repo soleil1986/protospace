@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
   has_many :prototypes
   has_many :likes
   has_many :comments
-  validates_presence_of :username, :member, :profile, :works
+  validates_presence_of :username, :member, :profile, :works, :avatar
 end
