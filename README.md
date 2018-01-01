@@ -1,11 +1,11 @@
-#User
+# User
 ___
-##association
+## association
 has_many :prototypes
 has_many :likes
 has_many :comments
 
-##table
+## table
 - username :string
 - member :string
 - profile :string
@@ -13,37 +13,37 @@ has_many :comments
 - avatar :text
 - email :string
 
-#Prototype
+# Prototype
 ___
-##association
+## association
 has_many :likes
 has_many :comments
 has_many :images
 belongs_to :user
 
-##table
+## table
 - user_id :integer
 - title :string
 - catchcopy :string
 - concept :text
 
-#Like
+# Like
 ___
-##association
+## association
 belongs_to :user
 belongs_to :prototype
 
-##table
+## table
 - user_id :integer
 - prototype_id :integer
 
-#Comments
+# Comments
 ___
-##association
+## association
 belongs_to :user
 belongs_to :prototype
 
-##table
+## table
 - content :text
 - user_id :integer
 - prototype_id :integer
