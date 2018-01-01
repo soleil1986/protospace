@@ -1,8 +1,8 @@
 # User
 ## association
-has_many :prototypes
-has_many :likes
-has_many :comments
+has_many :prototypes　　
+has_many :likes　　
+has_many :comments　　
 
 ## table
 - username :string
