@@ -1,5 +1,4 @@
 # User
-___
 ## association
 has_many :prototypes
 has_many :likes
@@ -14,7 +13,6 @@ has_many :comments
 - email :string
 
 # Prototype
-___
 ## association
 has_many :likes
 has_many :comments
@@ -28,7 +26,6 @@ belongs_to :user
 - concept :text
 
 # Like
-___
 ## association
 belongs_to :user
 belongs_to :prototype
@@ -38,7 +35,6 @@ belongs_to :prototype
 - prototype_id :integer
 
 # Comments
-___
 ## association
 belongs_to :user
 belongs_to :prototype
