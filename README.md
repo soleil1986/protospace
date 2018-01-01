@@ -14,10 +14,10 @@ has_many :comments
 
 # Prototype
 ## association
-has_many :likes
-has_many :comments
-has_many :images
-belongs_to :user
+has_many :likes  
+has_many :comments  
+has_many :images  
+belongs_to :user  
 
 ## table
 - user_id :integer
@@ -27,8 +27,8 @@ belongs_to :user
 
 # Like
 ## association
-belongs_to :user
-belongs_to :prototype
+belongs_to :user  
+belongs_to :prototype  
 
 ## table
 - user_id :integer
@@ -36,8 +36,8 @@ belongs_to :prototype
 
 # Comments
 ## association
-belongs_to :user
-belongs_to :prototype
+belongs_to :user  
+belongs_to :prototype  
 
 ## table
 - content :text
